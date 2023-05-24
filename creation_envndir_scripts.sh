@@ -28,10 +28,26 @@ crenvndirs() {
             ${py} -m venv ${venv} --system-site-package
             #echo "export PYTHON=${py}" >> ${bin}    # overwrite ${python} on .zshenv
             source ${bin}
-            echo "Upgrading pip"
-            ${py} -m pip install --upgrade pip
+            echo "Upgrading pip3"
+            ${py} -m pip3 install --upgrade pip3
 
-            # Checking for the application type, creating appropriate directore
+            # Checking for the application type, creating and installing the appriopriate directories and packages successively
+            if ["${app_type}" == "mlapp"]; then
+                echo "Creating directories and installing machine learning packages..."
+                mkdir data src models notebooks
+                touch data/train.csv data/test.csv
+                touch src/train.py src/inference.py src/models.py src/config.py src/data_pipeline.py
+                touch notebooks/exploration.ipynb notebooks/check_data.ipynb
+
+                ${py} -m pip3 install numpy pandas scikit-learn torch torchvision torchaudio tensorflow
+            elif ["${app_type}" == "webapp"]; then
+                echo "Creating directories and installing web development packages"
+                mkdir backend frontend backend/src backend/sql backend/tests frontend/tests
+                touch backend/__init__.py backend/admin.py backend/app.py backend/config.py backend/controllers.py backend/data_model.py backend/manage.py backend/requirements.txt
+                ${py} -m pip3 install flask django
+                cd frontend/
+                npm install react react-dom --save
+                cd ..
 
         else
             echo "Virtual environment  ${venv} already exists, activating..."
