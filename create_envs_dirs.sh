@@ -44,18 +44,17 @@ crenvndirs() {
 
                 ${py} -m pip install numpy pandas scikit-learn torch torchvision torchaudio tensorflow
 
-                echo "Finished setting up machine learning environment and basic packages"
+                echo "Finished setting up machine learning environment and it suitable basic packages"
             elif ["${app_type}" = "webapp"]; then
                 echo "Creating directories and installing web development packages"
                 
-                mkdir backend frontend backend/src backend/sql backend/tests frontend/tests
+                mkdir backend backend/src backend/sql backend/tests
                 touch backend/__init__.py backend/admin.py backend/app.py backend/config.py backend/controllers.py backend/data_model.py backend/manage.py backend/requirements.txt
                 ${py} -m pip install flask django
-                cd frontend/
-                npm install react react-dom --save
-                cd ..
+                npx create-react-app frontend
+                mkdir frontend/tests                
                 
-                echo "Finished setting up web development environment and basic packages"
+                echo "Finished setting up web development environment and its suitable basic packages"
             fi
 
         else
@@ -66,4 +65,3 @@ crenvndirs() {
         echo "Already in a virtual environment!"
     fi
 }
-crenvndirs
