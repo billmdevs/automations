@@ -40,7 +40,7 @@ crenvndirs() {
                 mkdir data src models notebooks
                 touch data/train.csv data/test.csv
                 touch src/train.py src/inference.py src/models.py src/config.py src/data_pipeline.py
-                touch notebooks/exploration.ipynb notebooks/check_data.ipynb
+                touch notebooks/exploration.ipynb notebooks/model.ipynb	notebooks/check_data.ipynb
 
                 ${py} -m pip install numpy pandas scikit-learn torch torchvision torchaudio tensorflow
 
