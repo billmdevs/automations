@@ -9,4 +9,5 @@ When I get a new laptop I usually flush it to install some debian variant of lin
 When I finish installing the distro I use my [setup](setup.sh) scripts to install all the necessary devtools, software and environments I minimally need to start hacking right away on anything.
 
 ## When starting new projects
-When starting new projects I use another [script](create_envs_dirs.sh) to create an environment and directly setup a directory structure that changes depending on the type of project I want to work on.
+When starting new projects I use another [script](create_envs_dirs.sh) to create an environment and directly setup a directory structure that changes depending on the type of project I want to work on. <br />
+If I am just trying out new stuff and exploring I will just use the [basic script](create_envs.sh) to create an environment, update pip and activate it.
