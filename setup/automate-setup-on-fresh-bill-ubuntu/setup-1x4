@@ -1,0 +1,2 @@
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 1
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 4

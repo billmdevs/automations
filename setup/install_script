@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# INSTALL SCRIPT FOR UBUNTU 16.04
+# Installing some basic system utilities first.
+
+cd ~
+cd setup/
+sudo apt update -qq
+sudo apt upgrade -yy
+
+# Installing tlp for battery longetivity.
+
+ sudo add-apt-repository -y ppa:linrunner/tlp
+ sudo apt update -qq
+ sudo apt install -y tlp tlp-rdw
+ 
+# Installing sticky notes.
+
+sudo add-apt-repository -y ppa:umang/indicator-stickynotes 
+sudo apt update -qq
+sudo apt install -y indicator-stickynotes
+
+# Install my useful stuff.
+sudo apt update -qq
+sudo apt upgrade -yy
+sudo apt install -y gnome-chess
+sudo apt install -y vlc
+sudo dpkg -i code_1.28.2-1539735992_amd64.deb
+sudo apt install -f # To install dependencies for code(VStudio)
+sudo apt install -y gparted
+sudo apt install -y skypeforlinux
+
+# Fix Ubuntu 16.04 bug that makes it unable to suspend after sleep.
+
+sudo echo "HandleLidSwitchDocked=suspend" >> /etc/systemd/logind.conf
+
+# Installation Done.
+
+echo "Installation done!!! Reboot computer or you're fucked!!!!!"

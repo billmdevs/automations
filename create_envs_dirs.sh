@@ -48,8 +48,8 @@ crenvndirs() {
             elif ["${app_type}" = "webapp"]; then
                 echo "Creating directories and installing web development packages"
                 
-                mkdir backend backend/src backend/sql backend/tests
-                touch backend/__init__.py backend/admin.py backend/app.py backend/config.py backend/controllers.py backend/data_model.py backend/manage.py backend/requirements.txt
+                mkdir backend backend/src backend/sql backend/tests backend/requirements
+                touch backend/__init__.py backend/admin.py backend/app.py backend/config.py backend/controllers.py backend/data_model.py backend/manage.py backend/requirements/requirements.txt
                 ${py} -m pip install flask django
                 npx create-react-app frontend
                 mkdir frontend/tests                
